@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Um laboratório interativo para adolescentes aprenderem Dart e Flutter do zero, criando um Painel de Missões.">
+  <title>Flutter Lab — Meu Painel de Missões</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="container" id="inicio">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <span class="eyebrow">TRILHA PARA QUEM ESTÁ COMEÇANDO</span>
+        <h1 id="hero-title">Seu primeiro app começa com uma <span>ideia pequena.</span></h1>
+        <p>Você vai montar o <strong>Meu Painel de Missões</strong>: uma tela para acompanhar metas de estudo. Cada missão apresenta uma peça do código, deixa você testar uma escolha e explica o que aconteceu.</p>
+        <div class="hero-stats" aria-label="Resumo da trilha">
+          <span>11 missões curtas</span>
+          <span>Do Dart à tela Flutter</span>
+          <span>Progresso salvo neste navegador</span>
+        </div>
+        <a href="#lab" class="hero-cta">Começar no laboratório <span aria-hidden="true">↓</span></a>
+      </div>
+
+      <aside class="hero-phone" aria-label="Prévia ilustrativa do aplicativo Meu Painel de Missões">
+        <div class="phone-notch"></div>
+        <div class="phone-appbar">Meu Painel</div>
+        <div class="phone-screen">
+          <span class="phone-kicker">MISSÃO DO DIA</span>
+          <strong>Revisar para a prova</strong>
+          <div class="phone-progress"><span></span></div>
+          <small>2 de 4 missões feitas</small>
+          <span class="phone-faux-button">Marcar como feita</span>
+        </div>
+      </aside>
+    </section>
+
+    <section class="route-card" aria-labelledby="route-title">
+      <div>
+        <span class="eyebrow">O MAPA DA TRILHA</span>
+        <h2 id="route-title">Primeiro a lógica. Depois a tela.</h2>
+      </div>
+      <ol class="route-steps">
+        <li><span>1</span> Dados e frases</li>
+        <li><span>2</span> Decisões e funções</li>
+        <li><span>3</span> Peças do Flutter</li>
+        <li><span>4</span> App interativo</li>
+      </ol>
+    </section>
+
+    <section class="workspace" id="lab" aria-label="Laboratório de aprendizado">
+      <aside class="sidebar">
+        <div class="sidebar-heading">
+          <div>
+            <span class="eyebrow">SUA TRILHA</span>
+            <span id="progress-label">Carregando progresso…</span>
+          </div>
+          <span id="saved-indicator" class="saved-indicator" aria-live="polite">Salvo</span>
+        </div>
+
+        <div class="progress-track" role="progressbar" aria-label="Progresso da trilha" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+          <div id="progress-bar" class="progress-bar"></div>
+        </div>
+
+        <nav id="lesson-nav" class="lesson-nav" aria-label="Missões do tutorial"></nav>
+
+        <div class="sidebar-note">
+          <strong>Uma regra importante</strong>
+          <p>Erro é pista, não derrota. Leia o retorno, tente outra vez e peça uma dica quando fizer sentido.</p>
+        </div>
+      </aside>
+
+      <article class="lesson-card" id="lesson-card" tabindex="-1">
+        <div class="lesson-header">
+          <div>
+            <span id="lesson-kicker" class="eyebrow">MISSÃO 01</span>
+            <h2 id="lesson-title">Carregando missão…</h2>
+          </div>
+          <span id="lesson-level" class="level-tag">DART</span>
+        </div>
+
+        <p id="lesson-intro" class="lesson-intro"></p>
+
+        <div class="mission-meta">
+          <span id="mission-format" class="format-tag">ATIVIDADE</span>
+          <span id="mission-goal"></span>
+        </div>
+
+        <section class="concept-box" aria-labelledby="concept-title">
+          <div class="concept-label">IDEIA PRINCIPAL</div>
+          <h3 id="concept-title"></h3>
+          <p id="concept-description"></p>
+        </section>
+
+        <section class="explanation" aria-labelledby="explanation-title">
+          <h3 id="explanation-title">Entenda as peças</h3>
+          <div id="explanation-list" class="explanation-list"></div>
+        </section>
+
+        <section class="activity-section" aria-labelledby="activity-title">
+          <div class="activity-heading">
+            <div>
+              <span class="eyebrow">PRATICAR</span>
+              <h3 id="activity-title">Seu desafio</h3>
+            </div>
+            <span id="honesty-badge" class="honesty-badge">SEM EXECUTAR DART</span>
+          </div>
+
+          <p id="exercise-instruction" class="exercise-instruction"></p>
+          <div id="activity-panel" class="activity-panel"></div>
+
+          <div class="activity-actions">
+            <button id="check-button" class="button-primary" type="button">Conferir resposta</button>
+            <button id="hint-button" class="button-secondary" type="button">Ver dica 1 de 3</button>
+            <button id="reset-activity" class="text-button" type="button">Limpar tentativa</button>
+          </div>
+
+          <p id="hint-box" class="hint-box hidden"></p>
+          <div id="feedback" class="feedback hidden" role="status" aria-live="polite"></div>
+        </section>
+
+        <section class="preview-section" aria-labelledby="preview-title">
+          <div class="preview-heading">
+            <div>
+              <span class="eyebrow">VISUALIZAÇÃO DIDÁTICA</span>
+              <h3 id="preview-title">O que essa ideia representa</h3>
+            </div>
+            <span class="live-tag">PRÉVIA ILUSTRATIVA</span>
+          </div>
+          <div id="preview-output" class="preview-output"></div>
+          <p id="preview-caption" class="preview-caption">Esta página confere respostas e simula telas para ensinar conceitos. Ela não compila nem executa Dart ou Flutter.</p>
+        </section>
+
+        <div class="lesson-actions">
+          <span id="completion-status" class="completion-status">Missão ainda não concluída</span>
+          <button id="next-button" class="button-primary" type="button" disabled>Próxima missão</button>
+        </div>
+      </article>
+    </section>
+
+    <section id="final-card" class="final-card hidden" aria-labelledby="final-title">
+      <span class="eyebrow">TRILHA CONCLUÍDA</span>
+      <h2 id="final-title">Seu Painel de Missões ganhou vida.</h2>
+      <p>Você passou por dados, decisões, funções e widgets até chegar a uma tela com botão e estado. Isso não substitui um projeto Flutter rodando de verdade — mas agora o código real vai parecer muito menos misterioso.</p>
+      <div class="final-next">
+        <strong>Próximo passo realista:</strong>
+        <span>copie o exemplo final para um projeto Flutter ou abra o DartPad para experimentar.</span>
+      </div>
+      <details class="final-code">
+        <summary>Ver um exemplo Flutter completo do Painel de Missões</summary>
+        <p>Não precisa decorar este arquivo agora. Leia procurando as peças que apareceram na trilha: MaterialApp, Scaffold, AppBar, Column, botão e setState.</p>
+        <pre><code>import 'package:flutter/material.dart';
+
+void main() {
+  runApp(const MeuPainelApp());
+}
+
+class MeuPainelApp extends StatefulWidget {
+  const MeuPainelApp({super.key});
+
+  @override
+  State&lt;MeuPainelApp&gt; createState() =&gt; _MeuPainelAppState();
+}
+
+class _MeuPainelAppState extends State&lt;MeuPainelApp&gt; {
+  int feitas = 2;
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        appBar: AppBar(title: const Text('Meu Painel')),
+        body: Center(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text('Missões feitas: $feitas'),
+              const SizedBox(height: 12),
+              ElevatedButton(
+                onPressed: () {
+                  setState(() {
+                    feitas++;
+                  });
+                },
+                child: const Text('Marcar uma como feita'),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}</code></pre>
+      </details>
+      <button id="restart-button" class="button-primary" type="button">Revisar do começo</button>
+    </section>
+
+  </main>
+</body>
+</html>
